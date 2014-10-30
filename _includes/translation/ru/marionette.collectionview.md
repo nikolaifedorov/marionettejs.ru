@@ -1,18 +1,19 @@
-The `CollectionView` will loop through all of the models in the
-specified collection, render each of them using a specified `childView`,
-then append the results of the child view's `el` to the collection view's
-`el`. By default the `CollectionView` will maintain a sorted collection's order
-in the DOM. This behavior can be disabled by specifying `{sort: false}` on initialize.
+`CollectionView` в цикле перебирает все модели из указанной коллекции,
+рендерит каждую из них, используя представление указанное в `childView`,
+затем добавляет результат `el` отрендеренного дочернего представления 
+в `el` представления коллекции. По умолчанию `CollectionView` отображает
+модели в DOM в порядке, соответствующем сортировки моделей в коллекции.
+Такое поведение можно отключить, указав `{sort: false}` при создании экземпляра (инициализации).
 
-CollectionView extends directly from Marionette.View. Please see
-[the Marionette.View documentation](marionette.view.md)
-for more information on available features and functionality.
+`CollectionView` напрямую расширяет (наследуется от) `Marionette.View`.
+Пожалуйста, ознакомтесь с [документацией по Marionette.View](marionette.view.md)
+для получения информации о доступной функциональности и доступных функциях.
 
-Additionally, interactions with Marionette.Region
-will provide features such as `onShow` callbacks, etc. Please see
-[the Region documentation](marionette.region.md) for more information.
+Кроме того, взаимодействуя с `Marionette.Region` предоставляется такая возможность,
+как коллбэк `onShow` и т.д. Пожалуйста, ознакомтесь с [документацией по Region](marionette.region.md)
+для получения более полной информации.
 
-## Documentation Index
+## Содержание
 
 * [CollectionView's `childView`](#collectionviews-childview)
   * [CollectionView's `getChildView`](#collectionviews-getchildview)
