@@ -15,7 +15,7 @@
 
 ## Содержание
 
-* [CollectionView's `childView`](#collectionviews-childview)
+* [Атрибут `childView`](#collectionviews-childview)
   * [CollectionView's `getChildView`](#collectionviews-getchildview)
   * [CollectionView's `childViewOptions`](#collectionviews-childviewoptions)
   * [CollectionView's `childViewEventPrefix`](#collectionviews-childvieweventprefix)
