@@ -53,11 +53,11 @@
 * [CollectionView's children](#collectionviews-children)
 * [CollectionView destroy](#collectionview-destroy)
 
-## CollectionView's `childView`
+## Атрибут `childView`
 
-Specify a `childView` in your collection view definition. This must be
-a Backbone view object definition, not an instance. It can be any
-`Backbone.View` or be derived from `Marionette.ItemView`.
+`childView` указывается в определении вашего представления коллекции.
+В этом атрибуте должен быть определен объект `Backbone` представления, а не экземпляр.
+Это может быть любой `Backbone.View` объект или объект полученный от `Marionette.ItemView`.
 
 ```js
 var MyChildView = Backbone.Marionette.ItemView.extend({});
@@ -66,13 +66,13 @@ Backbone.Marionette.CollectionView.extend({
   childView: MyChildView
 });
 ```
+Дочерние представления должны быть определены до того, 
+как они будут указаны в атрибуте `childView` в определении представления коллекции.
+Используйте `getChildView` для поиска нужного определения дочернего представления для
+инициализации экземпляра дочернего представления.
 
-Child views must be defined before they are referenced by the
-`childView` attribute in a collection view definition. Use `getChildView`
-to lookup the definition as child views are instantiated.
-
-Alternatively, you can specify a `childView` in the options for
-the constructor:
+Кроме того вы можете указать `childView` в опциях констркутора 
+при создании экземпляра представления коллекции:
 
 ```js
 var MyCollectionView = Backbone.Marionette.CollectionView.extend({...});
@@ -82,8 +82,8 @@ new MyCollectionView({
 });
 ```
 
-If you do not specify a `childView`, an exception will be thrown
-stating that you must specify a `childView`.
+Если вы не укажете `childView`, то будет сгенерировано исключение,
+иформирующее вас о том, что вы должны указать `childView`.
 
 ### CollectionView's `getChildView`
 The value returned by this method is the `ChildView` class that will be instantiated when a `Model` needs to be initially rendered.
