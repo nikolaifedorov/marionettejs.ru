@@ -17,7 +17,7 @@
 
 * [Атрибут `childView`](#collectionviews-childview)
   * [Метод `getChildView`](#collectionviews-getchildview)
-  * [CollectionView's `childViewOptions`](#collectionviews-childviewoptions)
+  * [Атрибут `childViewOptions`](#collectionviews-childviewoptions)
   * [CollectionView's `childViewEventPrefix`](#collectionviews-childvieweventprefix)
   * [CollectionView's `childEvents`](#collectionviews-childevents)
   * [CollectionView's `buildChildView`](#collectionviews-buildchildview)
@@ -86,6 +86,7 @@ new MyCollectionView({
 иформирующее вас о том, что вы должны указать `childView`.
 
 ### Метод `getChildView`
+
 Этот метод возвращает класс для `ChildView`. Будет создаваться экземпляр указанного `ChildView` класса,
 когда нужно рендерить `Model` из коллекции.
 Этот метод также предоставляет возможность настроить нужный `ChildViews` класс для каждой `Model`-и из коллекции. 
@@ -132,13 +133,13 @@ collectionView.collection.add(foo);
 collectionView.collection.add(bar);
 ```
 
-### CollectionView's `childViewOptions`
+### Атрибут `childViewOptions`
 
-There may be scenarios where you need to pass data from your parent
-collection view in to each of the childView instances. To do this, provide
-a `childViewOptions` definition on your collection view as an object
-literal. This will be passed to the constructor of your childView as part
-of the `options`.
+Иногда вам необходимо передать данные из вашего родительского представления коллекции 
+(`CollectionView`) в каждый экземпляр дочернего представления (`ChildView`).
+Чтобы сделать это, нужно определить атрибут `childViewOptions` в вашем представлении коллекции,
+в виде литерал объекта. Данные `childViewOptions` будут переданы в конструктор вашего дочернего представления
+как часть `options`.
 
 ```js
 var ChildView = Backbone.Marionette.ItemView.extend({
@@ -156,16 +157,16 @@ var CollectionView = Backbone.Marionette.CollectionView.extend({
 });
 ```
 
-You can also specify the `childViewOptions` as a function, if you need to
-calculate the values to return at runtime. The model will be passed into
-the function should you need access to it when calculating
-`childViewOptions`. The function must return an object, and the attributes
-of the object will be copied to the `childView` instance's options.
+Вы также можете указать `childViewOptions` в виде функции, если нужно
+вычислять возвращаемые значения во время выполнения. В функцию будет передана
+модель из коллекции, поэтому вы можете производить вычисления на ее основе.
+Функция должна возвращать объект, атрибуты объекта будут скопированы в опции
+экземпляра `СhildView`.
 
 ```js
 var CollectionView = Backbone.Marionette.CollectionView.extend({
   childViewOptions: function(model, index) {
-    // do some calculations based on the model
+    // делаем некоторые вычисления, основываясь на модели
     return {
       foo: "bar",
       childIndex: index
