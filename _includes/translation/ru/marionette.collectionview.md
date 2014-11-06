@@ -9,14 +9,14 @@
 Пожалуйста, ознакомтесь с [документацией по Marionette.View](marionette.view.md)
 для получения информации о доступной функциональности и доступных функциях.
 
-Кроме того, взаимодействуя с `Marionette.Region` предоставляется такая возможность,
+Кроме того, для взаимодействия с `Marionette.Region` предоставляется такая возможность,
 как коллбэк `onShow` и т.д. Пожалуйста, ознакомтесь с [документацией по Region](marionette.region.md)
 для получения более полной информации.
 
 ## Содержание
 
 * [Атрибут `childView`](#collectionviews-childview)
-  * [CollectionView's `getChildView`](#collectionviews-getchildview)
+  * [Метод `getChildView`](#collectionviews-getchildview)
   * [CollectionView's `childViewOptions`](#collectionviews-childviewoptions)
   * [CollectionView's `childViewEventPrefix`](#collectionviews-childvieweventprefix)
   * [CollectionView's `childEvents`](#collectionviews-childevents)
@@ -85,9 +85,10 @@ new MyCollectionView({
 Если вы не укажете `childView`, то будет сгенерировано исключение,
 иформирующее вас о том, что вы должны указать `childView`.
 
-### CollectionView's `getChildView`
-The value returned by this method is the `ChildView` class that will be instantiated when a `Model` needs to be initially rendered.
-This method also gives you the ability to customize per `Model` `ChildViews`.
+### Метод `getChildView`
+Этот метод возвращает класс для `ChildView`. Будет создаваться экземпляр указанного `ChildView` класса,
+когда нужно рендерить `Model` из коллекции.
+Этот метод также предоставляет возможность настроить нужный `ChildViews` класс для каждой `Model`-и из коллекции. 
 
 ```js
 var FooBar = Backbone.Model.extend({
@@ -105,8 +106,8 @@ var BarView = Backbone.Marionette.ItemView.extend({
 
 var MyCollectionView = Backbone.Marionette.CollectionView.extend({
   getChildView: function(item) {
-    // Choose which view class to render,
-    // depending on the properties of the item model
+    // Выбираем какой класс представления использовать для рендеринга,
+    // в зависимости от свойства модели из коллекции
     if  (item.get('isFoo')) {
       return FooView;
     }
@@ -124,10 +125,10 @@ var bar = new FooBar({
   isFoo: false
 });
 
-// Renders a FooView
+// Рендерится представление FooView
 collectionView.collection.add(foo);
 
-// Renders a BarView
+// Рендерится представление BarView
 collectionView.collection.add(bar);
 ```
 
