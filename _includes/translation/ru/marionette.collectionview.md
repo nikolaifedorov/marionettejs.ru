@@ -18,7 +18,7 @@
 * [Атрибут `childView`](#collectionviews-childview)
   * [Метод `getChildView`](#collectionviews-getchildview)
   * [Атрибут `childViewOptions`](#collectionviews-childviewoptions)
-  * [CollectionView's `childViewEventPrefix`](#collectionviews-childvieweventprefix)
+  * [Атрибут `childViewEventPrefix`](#collectionviews-childvieweventprefix)
   * [CollectionView's `childEvents`](#collectionviews-childevents)
   * [CollectionView's `buildChildView`](#collectionviews-buildchildview)
   * [CollectionView's `addChild`](#collectionviews-addchild)
@@ -175,11 +175,11 @@ var CollectionView = Backbone.Marionette.CollectionView.extend({
 });
 ```
 
-### CollectionView's `childViewEventPrefix`
+### Атрибут `childViewEventPrefix`
 
-You can customize the event prefix for events that are forwarded
-through the collection view. To do this, set the `childViewEventPrefix`
-on the collection view.
+Вы можете задать собственный префикс для событий, проходящих через представление коллекции. 
+Для того, чтобы сделать это, задайте нужное значение атрибуту `childViewEventPrefix` 
+у представления коллекции.
 
 ```js
 var CV = Marionette.CollectionView.extend({
@@ -191,14 +191,14 @@ var c = new CV({
 });
 
 c.on("some:prefix:render", function(){
-  // child view was rendered
+  // дочернее представление было отрендерено
 });
 
 c.render();
 ```
 
-The `childViewEventPrefix` can be provided in the view definition or
-in the constructor function call, to get a view instance.
+Атрибут `childViewEventPrefix` может быть задан в определении представления или
+в вызове функции конструктора, при создании экземпляра представления.
 
 ### CollectionView's `childEvents`
 
